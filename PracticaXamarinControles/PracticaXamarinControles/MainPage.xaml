@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PracticaXamarinControles"
+             x:Class="PracticaXamarinControles.MainPage">
+    <StackLayout>
+        <Label x:Name="lblSeleccionarFichero"
+               Text="Selecciona un fichero:" 
+               />
+        <Button x:Name="btnSeleccionarFichero"
+                Text="Examinar"
+                />
+        <Label x:Name="lblRuta"
+               Text="Sin ruta especificada" 
+               />
+        <Label x:Name="lblBusqueda"
+               Text="Búsqueda:" 
+               />
+        <Entry x:Name="txtBusqueda"
+               Text=""
+            />
+        <Label x:Name="lblRangoEdadMin"
+               Text="Edad mínima:" 
+               />
+        <Entry x:Name="txtMinEdad"
+               Text=""
+            />
+        <Label x:Name="lblRangoEdadMax"
+               Text="Edad máxima:" 
+               />
+        <Entry x:Name="txtMaxEdad"
+               Text=""
+            />
+        <ListView x:Name="lstContactos" />
+        <Button x:Name="btnBuscar" 
+                Text="Buscar"/>
+    </StackLayout>
+</ContentPage>
