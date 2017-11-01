@@ -10,6 +10,11 @@ namespace PracticaXamarinControles.resources
 {
     class Leer
     {
+        /// <summary>
+        /// Permite leer un archivo de texto a partir de una ruta recibida.
+        /// </summary>
+        /// <param name="ruta">Ruta donde se encuentra el archivo</param>
+        /// <returns>Lista de contactos creados a partir del archivo</returns>
         public static List<Contacto> LeerArchivo(String ruta)
         {
             
