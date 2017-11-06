@@ -24,7 +24,21 @@ namespace PracticaXamarinControles
             lstContactos.ItemsSource = contactosMostrar;
 
             btnSeleccionarFichero.Clicked += BtnSeleccionarFichero_Clicked;
+            btnSeleccionarFicheroXML.Clicked += BtnSeleccionarFicheroXML_Clicked;
             btnBuscar.Clicked += btnBuscar_Click;
+        }
+
+        private void BtnSeleccionarFicheroXML_Clicked(object sender, EventArgs e)
+        {
+            contactos = Leer.LeerArchivoXML("PracticaXamarinControles.data.alumnos.xml");
+            if (contactos.Count == 0)
+            {
+                lanzarAdvertencia("El archivo está vacio.");
+            }
+            else
+            {
+                lanzarAdvertencia("Datos cargados.");
+            }
         }
 
         /// <summary>
@@ -39,7 +53,7 @@ namespace PracticaXamarinControles
 
         private void BtnSeleccionarFichero_Clicked(object sender, EventArgs e)
         {
-            contactos=Leer.LeerArchivo("PracticaXamarinControles.alumnos.txt");
+            contactos=Leer.LeerArchivo("PracticaXamarinControles.data.alumnos.txt");
             if (contactos.Count == 0)
             {
                 lanzarAdvertencia("El archivo está vacio.");

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
+using System.Xml.Linq;
 
 namespace PracticaXamarinControles.resources
 {
@@ -17,7 +18,7 @@ namespace PracticaXamarinControles.resources
         /// <returns>Lista de contactos creados a partir del archivo</returns>
         public static List<Contacto> LeerArchivo(String ruta)
         {
-            
+
             List<Contacto> arrText = new List<Contacto>();
             String edad;
             String nombre;
@@ -40,6 +41,29 @@ namespace PracticaXamarinControles.resources
                 }
 
             } while (nombre != null && edad != null && dni != null);
+
+            return arrText;
+        }
+
+        /// <summary>
+        /// Permite leer un archivo XML a partir de una ruta recibida.
+        /// </summary>
+        /// <param name="ruta">Ruta donde se encuentra el archivo XML</param>
+        /// <returns>Lista de contactos creados a partir del archivo</returns>
+        public static List<Contacto> LeerArchivoXML(String ruta)
+        {
+
+            List<Contacto> arrText = new List<Contacto>();
+
+            var assembly = typeof(Leer).GetTypeInfo().Assembly;
+            Stream stream = assembly.GetManifestResourceStream(ruta);
+            StreamReader objReader = new StreamReader(stream);
+            var doc = XDocument.Load(stream);
+
+            foreach (XElement element in doc.Root.Elements())
+            {
+                arrText.Add(new Contacto(element.Element("NOMBRE").Value, element.Element("EDAD").Value, element.Element("DNI").Value));
+            }
 
             return arrText;
         }

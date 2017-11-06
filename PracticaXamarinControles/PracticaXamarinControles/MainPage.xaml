@@ -10,6 +10,9 @@
         <Button x:Name="btnSeleccionarFichero"
                 Text="Examinar"
                 />
+        <Button x:Name="btnSeleccionarFicheroXML"
+                Text="Examinar XML"
+                />
         <Label x:Name="lblRuta"
                Text="Sin ruta especificada" 
                />
